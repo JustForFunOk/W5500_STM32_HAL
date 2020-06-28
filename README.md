@@ -1,0 +1,7 @@
+# W5500_STM32_HAL
+
+## Hardware
+
+STM32: STM32F103RCT6
+
+## Branch

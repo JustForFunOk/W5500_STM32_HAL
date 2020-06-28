@@ -25,6 +25,7 @@
 /* USER CODE BEGIN Includes */
 #include "uart_printf/uart_printf.h"
 #include "socket.h"
+#include "loopback/loopback.h"
 #include <string.h>  // memcmp
 /* USER CODE END Includes */
 
@@ -182,6 +183,11 @@ int main(void)
     UART_Printf("buffer size set failed!\n");
   }
 
+  // set sever ip and port
+  uint8_t destip[4] = {192, 168, 3, 107};
+  uint16_t destport = 5000;
+  // receive buffer
+  uint8_t recv_buff[2048];
   /* USER CODE END 2 */
  
  
@@ -191,6 +197,8 @@ int main(void)
   UART_Printf("Init Done!");
   while (1)
   {
+    // test as tcp client
+    loopback_tcpc(0, (uint8_t*)recv_buff, destip, destport);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
